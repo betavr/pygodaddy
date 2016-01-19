@@ -99,13 +99,13 @@ class GoDaddyClient(object):
         """
         r = self.session.get(self.default_url)
         data = {
-                'app' : 'mya',
+                'app' : 'www',
                 'realm' : 'idp',
                 'name' : username,
                 'password' : password,
         }
-        # Updated by Bryce Gough = URL is using AU for the region so maybe update this if you need another region.
-        loginUri = 'https://sso.godaddy.com/v1/?path=%2Fdefault.aspx&app=mya&regionsite=au&marketid=en-AU'
+        # updated by Andras Beck@2016-01-19
+        loginUri = 'https://sso.godaddy.com/v1/?app=www&realm=idp'
         r = self.session.post(loginUri, data=data)
         return self.is_loggedin(r.text)
 
